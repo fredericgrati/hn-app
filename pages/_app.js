@@ -1,5 +1,6 @@
 import "../styles/tailwind.css";
 import "../styles/globals.css";
+import "../styles/chart.css";
 
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
