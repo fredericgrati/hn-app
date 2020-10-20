@@ -6,6 +6,7 @@ function Nav(props) {
   return (
     <div className={`${styles.header} flex items-center h-8`}>
       <img
+        alt="icon"
         width="25"
         height="25"
         className="m-2 border border-white"
