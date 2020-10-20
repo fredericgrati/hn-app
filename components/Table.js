@@ -12,12 +12,14 @@ function Table({ stories, onVote, onHide }) {
             return (
               <li className={bgc} key={story.id}>
                 <div className="flex items-center">
-                  <div className="flex sm:w-18 md:w-24">
-                    <div className="w-6 text-right">{story.nbComment}</div>
-                    <div className="w-6 text-right">
+                  <div className="flex sm:w-18 md:w-32">
+                    <div className="w-12 text-right sm:w-8">
+                      {story.nbComment}
+                    </div>
+                    <div className="w-12 text-right sm:w-8">
                       {story.points + story.ownPoints}
                     </div>
-                    <div className="w-6">
+                    <div className="w-8">
                       <div
                         className={style.arrow}
                         title="upvote"

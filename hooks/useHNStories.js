@@ -33,7 +33,7 @@ function useHNStories(ssStories) {
     if (isMounted) {
       fetchStories();
     }
-  }, [page]);
+  }, [page, type]);
 
   // When Stories changed then save them into local storage
   useEffect(() => {
@@ -58,6 +58,7 @@ function useHNStories(ssStories) {
   }
 
   function onTypeChange(type) {
+    setPage(0);
     setType(type);
   }
 

@@ -11,8 +11,13 @@ function Nav(props) {
         className="m-2 border border-white"
         src="/icon.gif"
       />
-      <p onClick={() => props.onTypeChange(TOP)}>top</p>
-      &nbsp; |&nbsp;<p onClick={() => props.onTypeChange(NEW)}>new</p>
+      <p className="cursor-pointer" onClick={() => props.onTypeChange(TOP)}>
+        top
+      </p>
+      &nbsp; |&nbsp;
+      <p className="cursor-pointer" onClick={() => props.onTypeChange(NEW)}>
+        new
+      </p>
     </div>
   );
 }
