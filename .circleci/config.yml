@@ -1,0 +1,38 @@
+version: 2.1
+orbs:
+  heroku: circleci/heroku@1.0.0
+jobs:
+  run-tests:
+    docker:
+      - image: circleci/node:10.20.0
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run:
+          name: Fetch dependencies
+          command: yarn install --no-progress --non-interactive --silent --pure-lockfile
+      - run:
+          name: Run test suite
+          command: yarn test:ci
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+  deploy-to-heroku:
+    docker:
+      - image: circleci/node:10.20.0
+    working_directory: ~/project
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - heroku/deploy-via-git
+workflows:
+  deploy:
+    jobs:
+    - run-tests
+    - deploy-to-heroku:
+        requires:
+          - run-tests
+        filters:
+          branches:
+            only: master

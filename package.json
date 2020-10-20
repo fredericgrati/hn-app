@@ -5,21 +5,31 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "test": "jest --watch",
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "chartist": "^0.11.4",
+    "dayjs": "^1.9.3",
+    "isomorphic-unfetch": "^3.1.0",
     "next": "9.5.5",
     "react": "16.14.0",
+    "react-chartist": "^0.14.3",
     "react-dom": "16.14.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
-    "identity-obj-proxy": "^3.0.0",
     "babel-jest": "^26.5.2",
+    "eslint": "7.2.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.5.3",
-    "react-test-renderer": "^16.12.0"
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "react-test-renderer": "^16.12.0",
+    "tailwindcss": "^1.9.4"
   }
 }
