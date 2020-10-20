@@ -17,7 +17,7 @@ function LineChart({ stories }) {
   };
 
   return (
-    <div className="h-64 my-12">
+    <div className="h-64 mt-12">
       <ChartistGraph data={data} options={options} type={type} />
     </div>
   );

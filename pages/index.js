@@ -26,7 +26,7 @@ function Home(props) {
       </Head>
 
       <main>
-        <div className="container px-4 mx-auto">
+        <div className="container mx-auto ">
           <Nav onTypeChange={onTypeChange} />
           <Table stories={stories.data} onVote={onVote} onHide={onHide} />
           <More onFetch={onFetch} loading={stories.loading} />
