@@ -10,7 +10,7 @@ export const NEW = "NEW";
 export const TOP = "TOP";
 
 function useHNStories(ssStories) {
-  const [stories, setStories] = useState([]);
+  const [stories, setStories] = useState(formatStories(ssStories));
   const [type, setType] = useState(NEW);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -47,10 +47,8 @@ function useHNStories(ssStories) {
 
   // When mounted then format and save server side stories
   useEffect(() => {
-    if (ssStories) {
-      const formattedStories = formatStories(ssStories, lsStories);
-      setStories(formattedStories);
-    }
+    const formattedStories = formatStories(ssStories, lsStories);
+    setStories(formattedStories);
   }, []);
 
   function onFetch() {
