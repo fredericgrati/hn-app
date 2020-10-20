@@ -12,7 +12,7 @@ function Table({ stories, onVote, onHide }) {
             return (
               <li className={bgc} key={story.id}>
                 <div className="flex items-center">
-                  <div className="flex sm:w-18 md:w-32">
+                  <div className="flex w-18">
                     <div className="w-12 text-right sm:w-8">
                       {story.nbComment}
                     </div>
