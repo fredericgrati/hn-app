@@ -9,7 +9,7 @@ import formatStories from "../utils/formatStories";
 export const NEW = "NEW";
 export const TOP = "TOP";
 
-function useHNStories(ssStories) {
+function useHNStories(ssStories = {}) {
   const [stories, setStories] = useState(formatStories(ssStories));
   const [type, setType] = useState(NEW);
   const [page, setPage] = useState(0);

@@ -1,7 +1,8 @@
 import dayjs from "dayjs";
 
 function formatStories(stories, lsStories = {}) {
-  return stories.hits.map((story) => {
+  const hits = stories.hits || [];
+  return hits.map((story) => {
     const id = story.objectID;
     const url = new URL(
       story.url || `https://news.ycombinator.com/item?id=${id}`
