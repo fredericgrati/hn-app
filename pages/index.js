@@ -1,4 +1,5 @@
 import "react";
+import PropTypes from "prop-types";
 import dynamic from "next/dynamic";
 
 import Head from "next/head";
@@ -27,7 +28,7 @@ function Home(props) {
 
       <main>
         <div className="mx-auto ">
-          <Nav onTypeChange={onTypeChange} />
+          <Nav onTypeChange={onTypeChange} type={stories.type} />
           <Table stories={stories.data} onVote={onVote} onHide={onHide} />
           <More onFetch={onFetch} loading={stories.loading} />
           <LineChart stories={stories.data} />
@@ -36,5 +37,11 @@ function Home(props) {
     </div>
   );
 }
+
+Home.propTypes = {
+  stories: PropTypes.shape({
+    hits: PropTypes.array,
+  }),
+};
 
 export default Home;

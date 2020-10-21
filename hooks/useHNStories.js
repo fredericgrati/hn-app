@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import PropTypes from "prop-types";
 
 import useLocalStorage from "./useLocalStorage";
 import useIsMounted from "./useIsMounted";
@@ -99,12 +100,25 @@ function useHNStories(ssStories = {}) {
       data: stories,
     },
     {
-      onHide,
-      onFetch,
-      onVote,
-      onTypeChange,
+      onHide: useCallback(onHide, [stories]),
+      onFetch: useCallback(onFetch, [page]),
+      onVote: useCallback(onVote, [stories]),
+      onTypeChange: useCallback(onTypeChange, [type]),
     },
   ];
 }
+
+export const StoryPropType = PropTypes.shape({
+  id: PropTypes.string,
+  createdAt: PropTypes.string,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  author: PropTypes.string,
+  points: PropTypes.number,
+  domain: PropTypes.string,
+  nbComment: PropTypes.number,
+  hide: PropTypes.bool,
+  ownPoints: PropTypes.number,
+});
 
 export default useHNStories;

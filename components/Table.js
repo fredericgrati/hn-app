@@ -1,5 +1,7 @@
 import { memo } from "react";
-import style from "../styles/Table.module.css";
+import PropTypes from "prop-types";
+
+import { StoryPropType } from "../hooks/useHNStories";
 
 function Table({ stories, onVote, onHide }) {
   return (
@@ -8,32 +10,33 @@ function Table({ stories, onVote, onHide }) {
         {stories
           .filter((story) => !story.hide)
           .map((story, index) => {
-            const bgc = index % 2 === 0 ? style.even : style.odd;
+            const bgc = index % 2 === 0 ? "#e6e6e0" : "#f6f6f0";
             return (
-              <li className={bgc} key={story.id}>
+              <li key={story.id} style={{ backgroundColor: bgc }}>
                 <div className="flex items-center">
-                  <div className="flex w-18">
-                    <div className="w-12 text-right sm:w-8">
-                      {story.nbComment}
-                    </div>
-                    <div className="w-12 text-right sm:w-8">
+                  <div className="flex w-32">
+                    <div className="w-10 text-right">{story.nbComment}</div>
+                    <div className="w-10 text-right">
                       {story.points + story.ownPoints}
                     </div>
-                    <div className="w-8">
-                      <div
-                        className={style.arrow}
-                        title="upvote"
+                    <div className="flex items-center justify-center w-10">
+                      <img
+                        className="cursor-pointer"
                         onClick={() => onVote(story.id)}
-                      ></div>
+                        alt="icon"
+                        width="13"
+                        height="13"
+                        src="/arrow.svg"
+                      />
                     </div>
                   </div>
                   <div className="flex flex-wrap text-sm truncate xl:flex-no-wrap">
                     <p className="text-lg truncate">{story.title}&nbsp;</p>
                     <div className="flex items-center">
-                      <span className={style.domainText}>({story.domain})</span>
-                      <span className={style.byText}>&nbsp;by&nbsp;</span>
+                      <span style={{ color: "#828282" }}>({story.domain})</span>
+                      <span style={{ color: "#b8b8b8" }}>&nbsp;by&nbsp;</span>
                       {story.author}
-                      <span className={style.domainText}>
+                      <span style={{ color: "#828282" }}>
                         &nbsp;{story.createdAt}
                       </span>
                       &nbsp;[
@@ -54,5 +57,11 @@ function Table({ stories, onVote, onHide }) {
     </div>
   );
 }
+
+Table.propTypes = {
+  stories: PropTypes.arrayOf(StoryPropType),
+  onVote: PropTypes.func.isRequired,
+  onHide: PropTypes.func.isRequired,
+};
 
 export default memo(Table);

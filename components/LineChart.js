@@ -1,13 +1,19 @@
 import "react";
+import PropTypes from "prop-types";
 import ChartistGraph from "react-chartist";
 
-function LineChart({ stories }) {
-  const data = {
-    labels: stories.map((story) => story.id),
-    series: [stories.map((story) => story.points + story.ownPoints)],
-  };
+import { StoryPropType } from "../hooks/useHNStories";
 
-  const type = "Line";
+export function getData(stories) {
+  const visibleStories = stories.filter((story) => !story.hide);
+  return {
+    labels: visibleStories.map((story) => story.id),
+    series: [visibleStories.map((story) => story.points + story.ownPoints)],
+  };
+}
+
+function LineChart({ stories }) {
+  const data = getData(stories);
 
   const options = {
     fullWidth: true,
@@ -18,9 +24,13 @@ function LineChart({ stories }) {
 
   return (
     <div className="h-64 mt-12">
-      <ChartistGraph data={data} options={options} type={type} />
+      <ChartistGraph data={data} options={options} type="Line" />
     </div>
   );
 }
+
+LineChart.propTypes = {
+  stories: PropTypes.arrayOf(StoryPropType),
+};
 
 export default LineChart;

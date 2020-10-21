@@ -1,4 +1,5 @@
-import "react";
+import { memo } from "react";
+import PropTypes from "prop-types";
 
 function More(props) {
   const Button = props.loading ? (
@@ -14,4 +15,9 @@ function More(props) {
   return <div className="p-2">{Button}</div>;
 }
 
-export default More;
+More.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  onFetch: PropTypes.func.isRequired,
+};
+
+export default memo(More);

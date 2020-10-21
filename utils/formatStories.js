@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import PropTypes from "prop-types";
 
 function formatStories(stories, lsStories = {}) {
   const hits = stories.hits || [];
@@ -8,7 +9,7 @@ function formatStories(stories, lsStories = {}) {
       story.url || `https://news.ycombinator.com/item?id=${id}`
     );
     const ownPoints = lsStories[id] ? lsStories[id].ownPoints : 0;
-    const hide = lsStories[id] ? lsStories[id].hide : 0;
+    const hide = lsStories[id] ? lsStories[id].hide : false;
     return {
       id,
       createdAt: dayjs().from(dayjs(story.created_at)),
