@@ -11,8 +11,8 @@ export const NEW = "NEW";
 export const TOP = "TOP";
 
 function useHNStories(ssStories = {}) {
-  const [stories, setStories] = useState(formatStories(ssStories));
-  const [type, setType] = useState(NEW);
+  const [stories, setStories] = useState(() => formatStories(ssStories));
+  const [type, setType] = useState(TOP);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const [lsStories, setLsStories] = useLocalStorage("stories");

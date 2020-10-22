@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import PropTypes from "prop-types";
 
 function formatStories(stories, lsStories = {}) {
   const hits = stories.hits || [];

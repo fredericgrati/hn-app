@@ -42,7 +42,7 @@ export async function getNewestStories(page = 0, nbStories = 30) {
 }
 
 export async function getServerSideStories() {
-  const stories = await getNewestStories();
+  const stories = await getTopStories();
   return {
     props: { stories },
   };
