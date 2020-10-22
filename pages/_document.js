@@ -10,6 +10,15 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <title>Hacker News</title>
+          <meta name="name" content="Hacker News" />
+          <link rel="icon" href="/favicon.ico" />
+          <meta name="description" content="hacker news description" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width, viewport-fit=cover"
+          />
+
           <link rel="preconnect" href="https://storage.googleapis.com" />
           <link rel="manifest" href="/manifest.json" />
 

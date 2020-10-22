@@ -20,16 +20,6 @@ function Home(props) {
   const { onVote, onHide, onFetch, onTypeChange } = handlers;
   return (
     <div>
-      <Head>
-        <title>Hacker News</title>
-        <meta name="name" content="Hacker News" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="hacker news description" />
-        <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width, viewport-fit=cover"
-        />
-      </Head>
       <main>
         <div className="mx-auto ">
           <Nav onTypeChange={onTypeChange} type={stories.type} />

@@ -10,16 +10,21 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@prefresh/next": "^0.3.0",
+    "preact": "^10.4.4",
+    "preact-render-to-string": "^5.1.9",
+    "react": "github:preact-compat/react#1.0.0",
+    "react-dom": "github:preact-compat/react-dom#1.0.0",
+    "react-ssr-prepass": "npm:preact-ssr-prepass@^1.0.1",
     "chartist": "^0.11.4",
     "dayjs": "^1.9.3",
     "isomorphic-unfetch": "^3.1.0",
-    "next": "canary",
+    "next": "^9.4.0",
     "next-offline": "4.0.6",
-    "react": "16.14.0",
-    "react-chartist": "^0.14.3",
-    "react-dom": "16.14.0"
+    "react-chartist": "^0.14.3"
   },
   "devDependencies": {
+    "react-refresh": "^0.8.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "babel-jest": "^26.5.2",
