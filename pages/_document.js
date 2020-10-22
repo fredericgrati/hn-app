@@ -15,10 +15,11 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta name="description" content="hacker news description" />
 
-          <link rel="preconnect" href="https://storage.googleapis.com"></link>
+          <link rel="preconnect" href="https://storage.googleapis.com" />
           <link rel="manifest" href="/manifest.json" />
 
-          <meta name="theme-color" content="ffffff" />
+          <meta name="theme-color" content="#ffffff" />
+          <link rel="apple-touch-icon" href="/logo.png" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="black" />
           <meta name="mobile-web-app-capable" content="yes" />
